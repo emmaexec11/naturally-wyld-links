@@ -219,21 +219,16 @@
 
         .collections-carousel {
             display: flex;
-            gap: 20px;
-            overflow-x: auto;
+            gap: 12px;
+            justify-content: center;
             padding: 8px 20px 16px;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            scroll-behavior: smooth;
-        }
-
-        .collections-carousel::-webkit-scrollbar {
-            display: none;
+            flex-wrap: nowrap;
         }
 
         .collection-card {
-            flex: 0 0 auto;
-            width: 160px; /* Larger cards */
+            flex: 1;
+            max-width: calc((100vw - 80px) / 5); /* 5 cards across the screen */
+            min-width: 120px;
             background: white;
             border-radius: 16px;
             overflow: hidden;
@@ -278,53 +273,9 @@
             color: #666;
         }
 
-        /* Navigation Arrows */
+        /* Navigation Arrows - Hidden since all items fit */
         .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 32px;
-            height: 32px;
-            background: white;
-            border: 1px solid #e9ecef;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            z-index: 10;
-        }
-
-        .carousel-nav:hover {
-            background: #f8f9fa;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        .carousel-nav-left {
-            left: 4px;
-        }
-
-        .carousel-nav-right {
-            right: 4px;
-        }
-
-        .carousel-nav svg {
-            width: 16px;
-            height: 16px;
-            color: #666;
-        }
-
-        .carousel-nav:hover svg {
-            color: #333;
-        }
-
-        /* Hide arrows when not needed */
-        .carousel-nav.hidden {
-            opacity: 0;
-            pointer-events: none;
+            display: none;
         }
 
         /* Animations */
@@ -356,32 +307,52 @@
 
             .collections-carousel {
                 padding: 8px 16px 16px;
+                gap: 8px;
             }
 
             .collection-card {
-                width: 140px; /* Larger on mobile too */
+                max-width: calc((100vw - 56px) / 5); /* 5 cards on mobile too */
+                min-width: 60px;
             }
 
             .collection-image {
-                height: 110px;
+                height: 80px;
             }
 
-            .carousel-nav {
-                width: 28px;
-                height: 28px;
+            .collection-content {
+                padding: 8px 4px;
             }
 
-            .carousel-nav svg {
-                width: 14px;
-                height: 14px;
+            .collection-name {
+                font-size: 10px;
             }
 
-            .carousel-nav-left {
-                left: 8px;
+            .collection-subtitle {
+                font-size: 8px;
+            }
+        }
+
+        /* Tablet responsive */
+        @media (max-width: 768px) and (min-width: 481px) {
+            .collections-carousel {
+                gap: 10px;
             }
 
-            .carousel-nav-right {
-                right: 8px;
+            .collection-card {
+                max-width: calc((100vw - 60px) / 5);
+                min-width: 100px;
+            }
+
+            .collection-image {
+                height: 100px;
+            }
+
+            .collection-name {
+                font-size: 12px;
+            }
+
+            .collection-subtitle {
+                font-size: 10px;
             }
         }
     </style>
@@ -471,14 +442,7 @@
         <section class="collections">
             <h2 class="collections-title">Shop By Collections</h2>
             <div class="carousel-container">
-                <!-- Left Arrow -->
-                <button class="carousel-nav carousel-nav-left" onclick="scrollCarousel('left')" aria-label="Scroll left">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                    </svg>
-                </button>
-
-                <!-- Collections Carousel -->
+                <!-- Collections Grid -->
                 <div class="collections-carousel" id="carousel">
                     <a href="https://naturallywyld.ca/collections/toothpaste" 
                        target="_blank" 
@@ -550,68 +514,10 @@
                         </div>
                     </a>
                 </div>
-
-                <!-- Right Arrow -->
-                <button class="carousel-nav carousel-nav-right" onclick="scrollCarousel('right')" aria-label="Scroll right">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
-                </button>
             </div>
         </section>
     </div>
 
-    <script>
-        function scrollCarousel(direction) {
-            const carousel = document.getElementById('carousel');
-            const scrollAmount = 180; // Card width (160px) + gap (20px)
-            
-            if (direction === 'left') {
-                carousel.scrollBy({
-                    left: -scrollAmount,
-                    behavior: 'smooth'
-                });
-            } else {
-                carousel.scrollBy({
-                    left: scrollAmount,
-                    behavior: 'smooth'
-                });
-            }
-            
-            // Update arrow visibility after scroll
-            setTimeout(updateArrowVisibility, 300);
-        }
-
-        function updateArrowVisibility() {
-            const carousel = document.getElementById('carousel');
-            const leftArrow = document.querySelector('.carousel-nav-left');
-            const rightArrow = document.querySelector('.carousel-nav-right');
-            
-            // Check if we can scroll left
-            if (carousel.scrollLeft <= 0) {
-                leftArrow.classList.add('hidden');
-            } else {
-                leftArrow.classList.remove('hidden');
-            }
-            
-            // Check if we can scroll right
-            if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
-                rightArrow.classList.add('hidden');
-            } else {
-                rightArrow.classList.remove('hidden');
-            }
-        }
-
-        // Initialize arrow visibility on page load
-        window.addEventListener('load', function() {
-            updateArrowVisibility();
-            
-            // Also update on scroll events
-            document.getElementById('carousel').addEventListener('scroll', updateArrowVisibility);
-        });
-
-        // Update on window resize
-        window.addEventListener('resize', updateArrowVisibility);
-    </script>
+    <!-- No JavaScript needed for static grid layout -->
 </body>
 </html>
