@@ -196,10 +196,10 @@
             transform: translateX(2px);
         }
 
-        /* Collections Section */
+        /* Collections Section - FULL WIDTH GRID */
         .collections {
             animation: fadeInUp 0.6s ease-out 1s both;
-            margin: 0 -20px; /* Extend beyond container */
+            margin: 0 -20px; /* Break out of container */
             padding: 0 20px;
         }
 
@@ -212,23 +212,16 @@
             text-align: center;
         }
 
-        .carousel-container {
-            position: relative;
-            margin: 0 -20px; /* Full width */
-        }
-
-        .collections-carousel {
-            display: flex;
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
             gap: 12px;
-            justify-content: center;
-            padding: 8px 20px 16px;
-            flex-wrap: nowrap;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding: 0 20px;
         }
 
         .collection-card {
-            flex: 1;
-            max-width: calc((100vw - 80px) / 5); /* 5 cards across the screen */
-            min-width: 120px;
             background: white;
             border-radius: 16px;
             overflow: hidden;
@@ -247,7 +240,7 @@
 
         .collection-image {
             width: 100%;
-            height: 120px; /* Taller images */
+            height: 120px;
             object-fit: cover;
             transition: transform 0.3s ease;
         }
@@ -257,25 +250,20 @@
         }
 
         .collection-content {
-            padding: 14px;
+            padding: 12px;
             text-align: center;
         }
 
         .collection-name {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             color: #333;
             margin-bottom: 4px;
         }
 
         .collection-subtitle {
-            font-size: 12px;
+            font-size: 11px;
             color: #666;
-        }
-
-        /* Navigation Arrows - Hidden since all items fit */
-        .carousel-nav {
-            display: none;
         }
 
         /* Animations */
@@ -301,18 +289,9 @@
                 padding: 0 16px;
             }
 
-            .carousel-container {
-                margin: 0 -16px;
-            }
-
-            .collections-carousel {
-                padding: 8px 16px 16px;
+            .collections-grid {
+                padding: 0 16px;
                 gap: 8px;
-            }
-
-            .collection-card {
-                max-width: calc((100vw - 56px) / 5); /* 5 cards on mobile too */
-                min-width: 60px;
             }
 
             .collection-image {
@@ -334,13 +313,8 @@
 
         /* Tablet responsive */
         @media (max-width: 768px) and (min-width: 481px) {
-            .collections-carousel {
+            .collections-grid {
                 gap: 10px;
-            }
-
-            .collection-card {
-                max-width: calc((100vw - 60px) / 5);
-                min-width: 100px;
             }
 
             .collection-image {
@@ -437,87 +411,82 @@
                 </svg>
             </a>
         </div>
-
-        <!-- Collections -->
-        <section class="collections">
-            <h2 class="collections-title">Shop By Collections</h2>
-            <div class="carousel-container">
-                <!-- Collections Grid -->
-                <div class="collections-carousel" id="carousel">
-                    <a href="https://naturallywyld.ca/collections/toothpaste" 
-                       target="_blank" 
-                       rel="noopener" 
-                       class="collection-card">
-                        <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/ozonated_toothpaste_duo_500x500_1.webp?v=1749867173" 
-                             alt="Natural Toothpaste" 
-                             class="collection-image"
-                             loading="lazy">
-                        <div class="collection-content">
-                            <div class="collection-name">Toothpaste</div>
-                            <div class="collection-subtitle">Ozonated</div>
-                        </div>
-                    </a>
-
-                    <a href="https://naturallywyld.ca/collections/multi-sticks" 
-                       target="_blank" 
-                       rel="noopener" 
-                       class="collection-card">
-                        <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multicolour_cream_flowers-Photoroom-Photoroom.jpg?v=1756154313" 
-                             alt="Natural Makeup" 
-                             class="collection-image"
-                             loading="lazy">
-                        <div class="collection-content">
-                            <div class="collection-name">Makeup</div>
-                            <div class="collection-subtitle">Multi-sticks</div>
-                        </div>
-                    </a>
-
-                    <a href="https://naturallywyld.ca/collections/ozonated-oils" 
-                       target="_blank" 
-                       rel="noopener" 
-                       class="collection-card">
-                        <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Ozonated_Olive_Oil_Showing_Product.jpg?v=1755573980" 
-                             alt="Ozonated Oils" 
-                             class="collection-image"
-                             loading="lazy">
-                        <div class="collection-content">
-                            <div class="collection-name">Ozonated Oils</div>
-                            <div class="collection-subtitle">Premium</div>
-                        </div>
-                    </a>
-
-                    <a href="https://naturallywyld.ca/collections/natural-deodorant" 
-                       target="_blank" 
-                       rel="noopener" 
-                       class="collection-card">
-                        <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/lav_deo_background-Photoroom-Photoroom.jpg?v=1756154718" 
-                             alt="Natural Deodorant" 
-                             class="collection-image"
-                             loading="lazy">
-                        <div class="collection-content">
-                            <div class="collection-name">Deodorant</div>
-                            <div class="collection-subtitle">Natural</div>
-                        </div>
-                    </a>
-
-                    <a href="https://naturallywyld.ca/collections/coconut-soy-candles" 
-                       target="_blank" 
-                       rel="noopener" 
-                       class="collection-card">
-                        <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/candle-Photoroom-Photoroom_2.jpg?v=1756157655" 
-                             alt="Natural Candles" 
-                             class="collection-image"
-                             loading="lazy">
-                        <div class="collection-content">
-                            <div class="collection-name">Candles</div>
-                            <div class="collection-subtitle">Soy wax</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
     </div>
 
-    <!-- No JavaScript needed for static grid layout -->
+    <!-- Collections - FULL WIDTH SECTION -->
+    <section class="collections">
+        <h2 class="collections-title">Shop By Collections</h2>
+        <div class="collections-grid">
+            <a href="https://naturallywyld.ca/collections/toothpaste" 
+               target="_blank" 
+               rel="noopener" 
+               class="collection-card">
+                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/ozonated_toothpaste_duo_500x500_1.webp?v=1749867173" 
+                     alt="Natural Toothpaste" 
+                     class="collection-image"
+                     loading="lazy">
+                <div class="collection-content">
+                    <div class="collection-name">Toothpaste</div>
+                    <div class="collection-subtitle">Ozonated</div>
+                </div>
+            </a>
+
+            <a href="https://naturallywyld.ca/collections/multi-sticks" 
+               target="_blank" 
+               rel="noopener" 
+               class="collection-card">
+                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multicolour_cream_flowers-Photoroom-Photoroom.jpg?v=1756154313" 
+                     alt="Natural Makeup" 
+                     class="collection-image"
+                     loading="lazy">
+                <div class="collection-content">
+                    <div class="collection-name">Makeup</div>
+                    <div class="collection-subtitle">Multi-sticks</div>
+                </div>
+            </a>
+
+            <a href="https://naturallywyld.ca/collections/ozonated-oils" 
+               target="_blank" 
+               rel="noopener" 
+               class="collection-card">
+                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Ozonated_Olive_Oil_Showing_Product.jpg?v=1755573980" 
+                     alt="Ozonated Oils" 
+                     class="collection-image"
+                     loading="lazy">
+                <div class="collection-content">
+                    <div class="collection-name">Ozonated Oils</div>
+                    <div class="collection-subtitle">Premium</div>
+                </div>
+            </a>
+
+            <a href="https://naturallywyld.ca/collections/natural-deodorant" 
+               target="_blank" 
+               rel="noopener" 
+               class="collection-card">
+                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/lav_deo_background-Photoroom-Photoroom.jpg?v=1756154718" 
+                     alt="Natural Deodorant" 
+                     class="collection-image"
+                     loading="lazy">
+                <div class="collection-content">
+                    <div class="collection-name">Deodorant</div>
+                    <div class="collection-subtitle">Natural</div>
+                </div>
+            </a>
+
+            <a href="https://naturallywyld.ca/collections/coconut-soy-candles" 
+               target="_blank" 
+               rel="noopener" 
+               class="collection-card">
+                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/candle-Photoroom-Photoroom_2.jpg?v=1756157655" 
+                     alt="Natural Candles" 
+                     class="collection-image"
+                     loading="lazy">
+                <div class="collection-content">
+                    <div class="collection-name">Candles</div>
+                    <div class="collection-subtitle">Soy wax</div>
+                </div>
+            </a>
+        </div>
+    </section>
 </body>
 </html>
