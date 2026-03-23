@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NaturallyWyld - All-Natural Skincare</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>NaturallyWyld - Premium Natural Skincare</title>
+    <meta name="description" content="All-natural & eco-friendly skincare, proudly Canadian-made. Discover our premium collection of ozonated oils, natural makeup, and organic wellness products.">
+    
+    <!-- Optimized Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --primary-green: #2D5A2F;
+            --soft-green: #E8F5E8;
+            --accent-gold: #D4A574;
+            --warm-white: #FAFAFA;
+            --pure-white: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #666666;
+            --text-tertiary: #999999;
+            --border-light: #E5E7EB;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,235 +36,312 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #ffffff;
-            color: #333333;
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--soft-green) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
             min-height: 100vh;
-            line-height: 1.5;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 420px;
+            max-width: 430px;
             margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
+            padding: 0 24px;
+            position: relative;
         }
 
-        /* Header Section */
+        /* Professional Header */
         .header {
-            margin-bottom: 40px;
-            animation: fadeInUp 0.6s ease-out;
+            text-align: center;
+            padding: 48px 0 40px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 24px;
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 88px;
+            height: 88px;
             border-radius: 50%;
-            margin: 0 auto 24px;
-            background: white;
-            padding: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            display: block;
+            background: var(--pure-white);
+            padding: 12px;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
         }
 
         .logo:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: var(--shadow-xl);
         }
 
         .brand-name {
-            font-size: 24px;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
             font-weight: 600;
-            color: #1a1a1a;
+            color: var(--primary-green);
             margin-bottom: 8px;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.5px;
         }
 
         .tagline {
-            font-size: 14px;
-            color: #666;
+            font-size: 15px;
+            color: var(--text-secondary);
             font-weight: 400;
-            line-height: 1.4;
+            max-width: 280px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* Trust Signal */
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--pure-white);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--primary-green);
+            margin-top: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .trust-badge::before {
+            content: "🇨🇦";
+            font-size: 14px;
         }
 
         /* Social Links */
+        .social-section {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin: 32px 0 40px;
-            animation: fadeInUp 0.6s ease-out 0.2s both;
+            gap: 16px;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
-            background: #f8f9fa;
+            width: 48px;
+            height: 48px;
+            background: var(--pure-white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid #e9ecef;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-light);
+            backdrop-filter: blur(10px);
         }
 
         .social-link:hover {
-            background: #e9ecef;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: var(--soft-green);
         }
 
         .social-link img {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
         }
 
-        /* Featured Card */
-        .featured-card {
+        /* Featured CTA */
+        .featured-cta {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .cta-card {
             position: relative;
+            background: linear-gradient(135deg, var(--primary-green) 0%, #1F4A21 100%);
             border-radius: 20px;
             overflow: hidden;
-            margin-bottom: 32px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            animation: fadeInUp 0.6s ease-out 0.4s both;
-            background: white;
-        }
-
-        .featured-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
-        }
-
-        .featured-card-link {
-            display: block;
             text-decoration: none;
-            color: inherit;
-        }
-
-        .featured-card-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .featured-card:hover .featured-card-image {
-            transform: scale(1.02);
-        }
-
-        .featured-card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
-            padding: 30px 20px 20px;
             color: white;
+            display: block;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-lg);
         }
 
-        .featured-card-title {
-            font-size: 16px;
+        .cta-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .cta-content {
+            padding: 32px 28px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
             font-weight: 600;
-            margin: 0;
+            margin-bottom: 8px;
         }
 
-        /* Quick Links */
-        .quick-links {
+        .cta-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .cta-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='7'/%3E%3Ccircle cx='53' cy='7' r='7'/%3E%3Ccircle cx='30' cy='30' r='7'/%3E%3Ccircle cx='7' cy='53' r='7'/%3E%3Ccircle cx='53' cy='53' r='7'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        /* Navigation Links */
+        .nav-section {
             margin-bottom: 48px;
         }
 
-        .link-button {
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .nav-link {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: white;
-            border: 1px solid #e9ecef;
-            border-radius: 50px;
-            padding: 16px 24px;
-            margin-bottom: 12px;
+            background: var(--pure-white);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 20px 24px;
             text-decoration: none;
-            color: #333;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            animation: fadeInUp 0.5s ease-out both;
+            color: var(--text-primary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out both;
         }
 
-        .link-button:nth-child(1) { animation-delay: 0.6s; }
-        .link-button:nth-child(2) { animation-delay: 0.7s; }
-        .link-button:nth-child(3) { animation-delay: 0.8s; }
+        .nav-link:nth-child(1) { animation-delay: 0.6s; }
+        .nav-link:nth-child(2) { animation-delay: 0.7s; }
+        .nav-link:nth-child(3) { animation-delay: 0.8s; }
 
-        .link-button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-            border-color: #d1d5db;
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(45, 90, 47, 0.05), transparent);
+            transition: left 0.5s ease;
         }
 
-        .link-button-text {
-            font-size: 15px;
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-green);
+        }
+
+        .nav-link-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-link-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-link:hover .nav-link-icon {
+            opacity: 1;
+        }
+
+        .nav-link-text {
+            font-size: 16px;
             font-weight: 500;
         }
 
-        .link-button-arrow {
-            width: 16px;
-            height: 16px;
-            opacity: 0.3;
+        .nav-link-arrow {
+            width: 20px;
+            height: 20px;
+            opacity: 0.4;
             transition: all 0.3s ease;
+            color: var(--primary-green);
         }
 
-        .link-button:hover .link-button-arrow {
-            opacity: 0.6;
-            transform: translateX(2px);
+        .nav-link:hover .nav-link-arrow {
+            opacity: 1;
+            transform: translateX(4px);
         }
 
-        /* Collections Section - FULL WIDTH GRID */
-        .collections {
-            animation: fadeInUp 0.6s ease-out 1s both;
-            margin: 0 -20px; /* Break out of container */
-            padding: 0 20px;
-        }
-
-        .collections-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 28px;
-            letter-spacing: -0.3px;
-            text-align: center;
+        /* Collections Grid */
+        .collections-section {
+            margin-bottom: 48px;
+            animation: fadeInUp 0.8s ease-out 1s both;
         }
 
         .collections-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-            padding: 0 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
         }
 
         .collection-card {
-            background: white;
+            background: var(--pure-white);
             border-radius: 16px;
             overflow: hidden;
             text-decoration: none;
             color: inherit;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-            border: 1px solid #f1f3f4;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
         }
 
         .collection-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            border-color: #e9ecef;
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-green);
         }
 
         .collection-image {
             width: 100%;
             height: 120px;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
         }
 
         .collection-card:hover .collection-image {
@@ -250,27 +349,49 @@
         }
 
         .collection-content {
-            padding: 12px;
+            padding: 16px;
             text-align: center;
         }
 
         .collection-name {
-            font-size: 13px;
-            font-weight: 500;
-            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
             margin-bottom: 4px;
         }
 
         .collection-subtitle {
-            font-size: 11px;
-            color: #666;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 32px 0 48px;
+            border-top: 1px solid var(--border-light);
+            margin-top: 48px;
+            animation: fadeInUp 0.6s ease-out 1.4s both;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin-bottom: 8px;
+        }
+
+        .footer-link {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
         }
 
         /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -278,215 +399,264 @@
             }
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 480px) {
-            .container {
-                padding: 32px 16px;
-            }
-
-            .collections {
-                margin: 0 -16px;
-                padding: 0 16px;
-            }
-
-            .collections-grid {
-                padding: 0 16px;
-                gap: 8px;
-            }
-
-            .collection-image {
-                height: 80px;
-            }
-
-            .collection-content {
-                padding: 8px 4px;
-            }
-
-            .collection-name {
-                font-size: 10px;
-            }
-
-            .collection-subtitle {
-                font-size: 8px;
-            }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
-        /* Tablet responsive */
-        @media (max-width: 768px) and (min-width: 481px) {
+        /* Background Elements */
+        .bg-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .bg-elements::before,
+        .bg-elements::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--soft-green), transparent);
+            opacity: 0.1;
+        }
+
+        .bg-elements::before {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -150px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .bg-elements::after {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            left: -100px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .header {
+                padding: 40px 0 32px;
+            }
+
+            .brand-name {
+                font-size: 26px;
+            }
+
             .collections-grid {
-                gap: 10px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
             }
 
             .collection-image {
                 height: 100px;
             }
+        }
 
-            .collection-name {
-                font-size: 12px;
-            }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
 
-            .collection-subtitle {
-                font-size: 10px;
-            }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(45, 90, 47, 0.2);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(45, 90, 47, 0.3);
         }
     </style>
 </head>
 <body>
+    <div class="bg-elements"></div>
+    
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Logo_Sticker_large_text_1.5_x_1.5_in.png?v=1756152287" 
-                 alt="NaturallyWyld Logo" 
-                 class="logo"
-                 loading="lazy">
+            <div class="logo-container">
+                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Logo_Sticker_large_text_1.5_x_1.5_in.png?v=1756152287" 
+                     alt="NaturallyWyld Logo" 
+                     class="logo"
+                     loading="eager">
+            </div>
             <h1 class="brand-name">NaturallyWyld</h1>
-            <p class="tagline">All-natural &amp; eco-friendly skincare, proudly Canadian-made!</p>
+            <p class="tagline">All-natural & eco-friendly skincare, proudly Canadian-made!</p>
+            <div class="trust-badge">Voted Best Local Brand</div>
         </header>
 
         <!-- Social Links -->
-        <div class="social-links">
-            <a href="https://www.instagram.com/naturally_wyld/" 
-               target="_blank" 
-               rel="noopener" 
-               class="social-link"
-               aria-label="Follow us on Instagram">
-                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/optimized_Insta_Social_Media_Icons.svg?v=1727801836" 
-                     alt="Instagram" 
-                     loading="lazy">
-            </a>
-            <a href="https://www.facebook.com/NaturallyWyld/" 
-               target="_blank" 
-               rel="noopener" 
-               class="social-link"
-               aria-label="Follow us on Facebook">
-                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/optimized_Facebook_Social_Media_Icons.svg?v=1727801836" 
-                     alt="Facebook" 
-                     loading="lazy">
-            </a>
-        </div>
+        <section class="social-section">
+            <div class="social-links">
+                <a href="https://www.instagram.com/naturally_wyld/" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="social-link"
+                   aria-label="Follow us on Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 2H7C4.24 2 2 4.24 2 7V17C2 19.76 4.24 22 7 22H17C19.76 22 22 19.76 22 17V7C22 4.24 19.76 2 17 2ZM20 17C20 18.65 18.65 20 17 20H7C5.35 20 4 18.65 4 17V7C4 5.35 5.35 4 7 4H17C18.65 4 20 5.35 20 7V17Z" fill="#2D5A2F"/>
+                        <path d="M12 7C9.24 7 7 9.24 7 12C7 14.76 9.24 17 12 17C14.76 17 17 14.76 17 12C17 9.24 14.76 7 12 7ZM12 15C10.35 15 9 13.65 9 12C9 10.35 10.35 9 12 9C13.65 9 15 10.35 15 12C15 13.65 13.65 15 12 15Z" fill="#2D5A2F"/>
+                        <circle cx="17.5" cy="6.5" r="1.5" fill="#2D5A2F"/>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/NaturallyWyld/" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="social-link"
+                   aria-label="Follow us on Facebook">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24V15.564H7.078V12.073H10.125V9.41C10.125 6.387 11.917 4.716 14.658 4.716C15.97 4.716 17.344 4.953 17.344 4.953V7.898H15.83C14.34 7.898 13.875 8.8 13.875 9.727V12.073H17.203L16.671 15.564H13.875V24C19.612 23.094 24 18.1 24 12.073Z" fill="#2D5A2F"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
 
-        <!-- Featured Card -->
-        <div class="featured-card">
+        <!-- Featured CTA -->
+        <section class="featured-cta">
             <a href="https://naturallywyld.ca" 
                target="_blank" 
                rel="noopener" 
-               class="featured-card-link">
-                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/ooo_textured_wall-Photoroom-Photoroom.jpg?v=1756158149" 
-                     alt="NaturallyWyld Homepage" 
-                     class="featured-card-image"
-                     loading="lazy">
-                <div class="featured-card-content">
-                    <h2 class="featured-card-title">Visit Our Homepage</h2>
+               class="cta-card">
+                <div class="cta-content">
+                    <h2 class="cta-title">Shop Our Collection</h2>
+                    <p class="cta-subtitle">Discover premium natural skincare</p>
                 </div>
             </a>
-        </div>
+        </section>
 
-        <!-- Quick Links -->
-        <div class="quick-links">
-            <a href="https://naturallywyld.ca/pages/multicolourcream3for30?pb=0" 
-               target="_blank" 
-               rel="noopener" 
-               class="link-button">
-                <span class="link-button-text">Makeup Tester Pack</span>
-                <svg class="link-button-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-            </a>
-            <a href="https://www.instagram.com/naturally_wyld/" 
-               target="_blank" 
-               rel="noopener" 
-               class="link-button">
-                <span class="link-button-text">Instagram</span>
-                <svg class="link-button-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-            </a>
-            <a href="https://www.facebook.com/NaturallyWyld/" 
-               target="_blank" 
-               rel="noopener" 
-               class="link-button">
-                <span class="link-button-text">Facebook</span>
-                <svg class="link-button-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-            </a>
-        </div>
+        <!-- Navigation Links -->
+        <section class="nav-section">
+            <h3 class="section-title">Featured Products</h3>
+            <div class="nav-links">
+                <a href="https://naturallywyld.ca/pages/multicolourcream3for30?pb=0" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="nav-link">
+                    <div class="nav-link-content">
+                        <svg class="nav-link-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V4C15 2.9 14.1 2 13 2H11C9.9 2 9 2.9 9 4V6.5L3 7V9H9V10.5C9 12.43 10.57 14 12.5 14H11.5C13.43 14 15 15.57 15 17.5V19H21V17C21 15.9 20.1 15 19 15C19 13.9 18.1 13 17 13C15.9 13 15 13.9 15 15V17.5C15 15.57 13.43 14 11.5 14H12.5C10.57 14 9 12.43 9 10.5V9H21Z" fill="currentColor"/>
+                        </svg>
+                        <span class="nav-link-text">Makeup Tester Pack</span>
+                    </div>
+                    <svg class="nav-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/naturally_wyld/" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="nav-link">
+                    <div class="nav-link-content">
+                        <svg class="nav-link-icon" viewBox="0 0 24 24" fill="none">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+                            <path stroke="currentColor" stroke-width="2" d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span class="nav-link-text">Follow on Instagram</span>
+                    </div>
+                    <svg class="nav-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/NaturallyWyld/" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="nav-link">
+                    <div class="nav-link-content">
+                        <svg class="nav-link-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span class="nav-link-text">Like on Facebook</span>
+                    </div>
+                    <svg class="nav-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Collections -->
+        <section class="collections-section">
+            <h3 class="section-title">Shop Collections</h3>
+            <div class="collections-grid">
+                <a href="https://naturallywyld.ca/collections/toothpaste" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="collection-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/ozonated_toothpaste_duo_500x500_1.webp?v=1749867173" 
+                         alt="Natural Toothpaste" 
+                         class="collection-image"
+                         loading="lazy">
+                    <div class="collection-content">
+                        <div class="collection-name">Toothpaste</div>
+                        <div class="collection-subtitle">Ozonated Formula</div>
+                    </div>
+                </a>
+
+                <a href="https://naturallywyld.ca/collections/multi-sticks" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="collection-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multicolour_cream_flowers-Photoroom-Photoroom.jpg?v=1756154313" 
+                         alt="Natural Makeup" 
+                         class="collection-image"
+                         loading="lazy">
+                    <div class="collection-content">
+                        <div class="collection-name">Makeup</div>
+                        <div class="collection-subtitle">Multi-Sticks</div>
+                    </div>
+                </a>
+
+                <a href="https://naturallywyld.ca/collections/ozonated-oils" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="collection-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Ozonated_Olive_Oil_Showing_Product.jpg?v=1755573980" 
+                         alt="Ozonated Oils" 
+                         class="collection-image"
+                         loading="lazy">
+                    <div class="collection-content">
+                        <div class="collection-name">Ozonated Oils</div>
+                        <div class="collection-subtitle">Premium Skincare</div>
+                    </div>
+                </a>
+
+                <a href="https://naturallywyld.ca/collections/natural-deodorant" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="collection-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/lav_deo_background-Photoroom-Photoroom.jpg?v=1756154718" 
+                         alt="Natural Deodorant" 
+                         class="collection-image"
+                         loading="lazy">
+                    <div class="collection-content">
+                        <div class="collection-name">Deodorant</div>
+                        <div class="collection-subtitle">Aluminum-Free</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">Made with love in Canada 🇨🇦</p>
+            <a href="https://naturallywyld.ca" class="footer-link">naturallywyld.ca</a>
+        </footer>
     </div>
-
-    <!-- Collections - FULL WIDTH SECTION -->
-    <section class="collections">
-        <h2 class="collections-title">Shop By Collections</h2>
-        <div class="collections-grid">
-            <a href="https://naturallywyld.ca/collections/toothpaste" 
-               target="_blank" 
-               rel="noopener" 
-               class="collection-card">
-                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/ozonated_toothpaste_duo_500x500_1.webp?v=1749867173" 
-                     alt="Natural Toothpaste" 
-                     class="collection-image"
-                     loading="lazy">
-                <div class="collection-content">
-                    <div class="collection-name">Toothpaste</div>
-                    <div class="collection-subtitle">Ozonated</div>
-                </div>
-            </a>
-
-            <a href="https://naturallywyld.ca/collections/multi-sticks" 
-               target="_blank" 
-               rel="noopener" 
-               class="collection-card">
-                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multicolour_cream_flowers-Photoroom-Photoroom.jpg?v=1756154313" 
-                     alt="Natural Makeup" 
-                     class="collection-image"
-                     loading="lazy">
-                <div class="collection-content">
-                    <div class="collection-name">Makeup</div>
-                    <div class="collection-subtitle">Multi-sticks</div>
-                </div>
-            </a>
-
-            <a href="https://naturallywyld.ca/collections/ozonated-oils" 
-               target="_blank" 
-               rel="noopener" 
-               class="collection-card">
-                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Ozonated_Olive_Oil_Showing_Product.jpg?v=1755573980" 
-                     alt="Ozonated Oils" 
-                     class="collection-image"
-                     loading="lazy">
-                <div class="collection-content">
-                    <div class="collection-name">Ozonated Oils</div>
-                    <div class="collection-subtitle">Premium</div>
-                </div>
-            </a>
-
-            <a href="https://naturallywyld.ca/collections/natural-deodorant" 
-               target="_blank" 
-               rel="noopener" 
-               class="collection-card">
-                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/lav_deo_background-Photoroom-Photoroom.jpg?v=1756154718" 
-                     alt="Natural Deodorant" 
-                     class="collection-image"
-                     loading="lazy">
-                <div class="collection-content">
-                    <div class="collection-name">Deodorant</div>
-                    <div class="collection-subtitle">Natural</div>
-                </div>
-            </a>
-
-            <a href="https://naturallywyld.ca/collections/coconut-soy-candles" 
-               target="_blank" 
-               rel="noopener" 
-               class="collection-card">
-                <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/candle-Photoroom-Photoroom_2.jpg?v=1756157655" 
-                     alt="Natural Candles" 
-                     class="collection-image"
-                     loading="lazy">
-                <div class="collection-content">
-                    <div class="collection-name">Candles</div>
-                    <div class="collection-subtitle">Soy wax</div>
-                </div>
-            </a>
-        </div>
-    </section>
 </body>
 </html>
